@@ -6,12 +6,11 @@
 class RegionRestrictor
 {
 public:
-  RegionRestrictor(const float maxBaseAngle, const float maxArmLength);
+  RegionRestrictor(const float maxBaseAngleRadians, const float maxArmLength);
 
-  Point2f RestrictToBounds(const Point2f& coordinate);
-  Point2f RestrictToBounds(const Vector2f& coordinate);
+  const Vector2f RestrictToBounds(const Vector2f& coordinate) const;
 private:
-  const float m_MaxBaseAngle;
+  const float m_MaxBaseAngleRadians;
   const float m_MaxArmLength;
 };
 

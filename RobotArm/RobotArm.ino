@@ -1,13 +1,18 @@
 #include "Servo.h"
 #include "Structs.h"
 #include "Controller.h"
+#include "RegionRestrictor.h"
+// #include <math.h>
 
-#define stickX A0 // GREEN WIRE is X
-#define stickY A1 // BLUE WIRE IS Y
+// #define _USE_MATH_DEFINES
+
+// #define stickX A0 // GREEN WIRE is X
+// #define stickY A1 // BLUE WIRE IS Y
 
 Servo baseJoint;
 Servo elbowJoint;
 Controller controller1{A0, A1, 1.f};
+RegionRestrictor regionRestrictor{M_PI/2, 2};
 
 unsigned long CalculateDeltaTime();
 
@@ -30,6 +35,8 @@ void loop()
   float deltaTime{float(deltaTimeMilli)/1000.f};
 
   controller1.Update(deltaTime);
+  controller1.SetDesiredCoordinate(regionRestrictor.RestrictToBounds(controller1.GetDesiredCoordinate()));
+  controller1.GetDesiredCoordinate().Print();
 }
 
 unsigned long CalculateDeltaTime()

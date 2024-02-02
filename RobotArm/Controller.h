@@ -12,7 +12,8 @@ public:
   void Update(float deltaTime);
   void PrintCoordinates() const;
 
-  const Point2f GetDesiredCoordinate() const;
+  const Vector2f GetDesiredCoordinate() const;
+  void SetDesiredCoordinate(const Vector2f& coordinate);
 
 private:
   uint8_t m_xPin;
@@ -20,7 +21,7 @@ private:
   int m_StickMidpoint;
   int m_Deadzone;
   float m_Sensitivity; // Units moved per second (1 unit = length of arm segment)
-  Point2f m_DesiredCoordinate;
+  Vector2f m_DesiredCoordinate;
 };
 
 #endif

@@ -59,10 +59,11 @@ Vector2f& Vector2f::operator-=(const Vector2f& other)
   return *this;
 }
 
-void Vector2f::Normalize()
+Vector2f& Vector2f::Normalize()
 {
   auto magnitude{GetMagnitude()};
   *this /= magnitude;
+  return *this;
 }
 
 void Vector2f::Print()

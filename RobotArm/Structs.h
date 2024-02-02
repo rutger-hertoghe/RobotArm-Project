@@ -29,7 +29,7 @@ struct Vector2f{
 
   Vector2f(int angleInDegrees, float magnitude)
   {
-    double angleInRadians = double(angleInDegrees) * M_PI / 360;
+    double angleInRadians = double(angleInDegrees) * M_PI / 180;
     x = cos(angleInRadians) * magnitude;
     y = sin(angleInRadians) * magnitude;
   };
@@ -55,7 +55,7 @@ struct Vector2f{
   const float GetMagnitudeSquared() const;
   const float GetAngleInRadians() const;
   const int GetAngleInDegrees() const;
-  void Normalize();
+  Vector2f& Normalize();
 
   float Dot(const Vector2f& other) const;
   float Cross(const Vector2f& other) const;

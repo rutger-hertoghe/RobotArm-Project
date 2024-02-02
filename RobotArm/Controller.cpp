@@ -46,7 +46,12 @@ void Controller::PrintCoordinates() const
   Serial.println(m_DesiredCoordinate.y);
 }
 
-const Point2f Controller::GetDesiredCoordinate() const
+const Vector2f Controller::GetDesiredCoordinate() const
 {
   return m_DesiredCoordinate;
+}
+
+void Controller::SetDesiredCoordinate(const Vector2f& coordinate)
+{
+  m_DesiredCoordinate = coordinate;
 }
