@@ -22,6 +22,7 @@ Next I attached whatever this white plastic-y thing is called to the service (wh
 ![ServoBolt](https://github.com/rutger-hertoghe/RobotArm-Project/assets/5301949/06577751-4a9e-46cd-ae8b-35ce538a19e1)
 
 I ended up building a short 2 segment robot arm, created a small structure to provide stability around it and wired it to my arduino.
+
 ![2DArm_OnlyArm](https://github.com/rutger-hertoghe/RobotArm-Project/assets/5301949/58076fa9-63f3-487f-840c-1763f19f72db)
 ![2DArm_FullBuild](https://github.com/rutger-hertoghe/RobotArm-Project/assets/5301949/9e694659-2c0e-4935-893b-7191fed50faf)
 
