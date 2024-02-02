@@ -12,7 +12,7 @@ Pressing down the stick should have the arm lunge forward retaining its approxim
 Inverse kinematics will be used to convert the 2D coordinate in the plane to actual servo position so that the arm moves into the desired position.
 
 # Process
-Stage 1: Building a simple robot arm that reaches for a coordinate in a 2D plane.
+## Stage 1: Building a simple robot arm that reaches for a coordinate in a 2D plane.
 The first step was to create an arm as a proof of concept that moves its tip into a coordinate in a 2D space both to refresh programming concepts and my inverse kinematics knowledge.
 Robot arm segments had to be build. For this, I glued two icicle sticks together in a perpendicular and slightly offset fashion and then glued these to the serve themselves.
 The picture below should clarify what I mean by this description.
