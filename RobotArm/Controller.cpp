@@ -6,12 +6,11 @@ Controller::Controller(uint8_t xPin, uint8_t yPin, float sensitivity)
   : m_xPin{xPin}
   , m_yPin{yPin}
   , m_Sensitivity{sensitivity}
-  , m_DesiredCoordinate{}
   , m_StickMidpoint{512}
   , m_Deadzone{300}
 {}
 
-void Controller::Update(float deltaTime)
+void Controller::Update(float deltaTime, Vector2f& target)
 {
   int analogX{analogRead(m_xPin)};
   int analogY{analogRead(m_yPin)};
@@ -20,38 +19,20 @@ void Controller::Update(float deltaTime)
 
   if(analogX >= m_StickMidpoint + m_Deadzone)
   {
-    m_DesiredCoordinate.x += displacement;
+    target.x += displacement;
   }
   else if (analogX <= m_StickMidpoint - m_Deadzone)
   {
-    m_DesiredCoordinate.x -= displacement;
+    target.x -= displacement;
   }
   
   // -/+ are reversed for Y because down on the Y stick gives a higher value (~reversed)
   if(analogY>= m_StickMidpoint + m_Deadzone)
   {
-    m_DesiredCoordinate.y -= displacement;
+    target.y -= displacement;
   }
   else if (analogY <= m_StickMidpoint - m_Deadzone)
   {
-    m_DesiredCoordinate.y += displacement;
+    target.y += displacement;
   }
-}
-
-void Controller::PrintCoordinates() const
-{
-  Serial.print("X Coordinate: ");
-  Serial.println(m_DesiredCoordinate.x);
-  Serial.print("Y Coordinate: ");
-  Serial.println(m_DesiredCoordinate.y);
-}
-
-const Vector2f Controller::GetDesiredCoordinate() const
-{
-  return m_DesiredCoordinate;
-}
-
-void Controller::SetDesiredCoordinate(const Vector2f& coordinate)
-{
-  m_DesiredCoordinate = coordinate;
 }
