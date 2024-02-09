@@ -72,6 +72,8 @@ void RobotArm::MoveToTarget(Vector2f target)
   {
     HoneInOnTarget(target);
   }
+  
+  //PrintAngles();
   SetRealAngles();
 }
 

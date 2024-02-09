@@ -7,11 +7,12 @@
 
 // #define _USE_MATH_DEFINES
 
-ServoSegment elbowSegment{60, true};
-ServoSegment baseSegment{60, false, &elbowSegment};
+ServoSegment handSegment{90, false};
+ServoSegment elbowSegment{90, true, &handSegment};
+ServoSegment baseSegment{90, false, &elbowSegment};
 RobotArm* fullArm;
 Vector2f target;
-Controller controller1{A0, A1, 1.f};
+Controller controller1{A0, A1, 2.f, 200};
 
 unsigned long CalculateDeltaTime();
 
@@ -20,10 +21,13 @@ void setup() {
 
   baseSegment.AttachServo(9);
   elbowSegment.AttachServo(8);
+  handSegment.AttachServo(10);
 
   fullArm = new RobotArm{&baseSegment};
 
-  target = fullArm->GetEndPoint();
+  //target = fullArm->GetEndPoint();
+  target = Vector2f{1.f, 1.f};
+  fullArm->MoveToTarget(target);
 }
 
 void loop() 
