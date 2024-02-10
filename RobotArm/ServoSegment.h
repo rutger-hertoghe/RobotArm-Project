@@ -27,7 +27,7 @@ public:
   int GetAngle() const;
   void SetAngle(int angle);
   float GetLength() const;
-  ServoSegment* GetChildSegment() const; // TODO: might be redundant/confusing, better to give RobotArm full ownership of the arm
+  ServoSegment* GetChildSegment() const; // TODO: might be redundant/confusing, better to give RobotArm full ownership of the arm?
 
 private:
   const int m_DefaultAngleDeg;

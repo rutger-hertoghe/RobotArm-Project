@@ -25,8 +25,7 @@ void setup() {
 
   fullArm = new RobotArm{&baseSegment};
 
-  //target = fullArm->GetEndPoint();
-  target = Vector2f{1.f, 1.f};
+  target = fullArm->GetEndPoint();
   fullArm->MoveToTarget(target);
 }
 

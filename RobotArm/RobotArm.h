@@ -12,8 +12,8 @@ public:
   RobotArm(ServoSegment* pBaseSegment);
   ~RobotArm();
 
-  void MoveToTarget(Vector2f target); // Moves the arm's tip towards the target coordinate
-
+  // nrOfIterations will reduce operation smoothness, but can be increased when needing instant correct position
+  void MoveToTarget(Vector2f target, const int nrOfIterations = 1); 
   Vector2f GetEndPoint(); // Gets the vector going directly from the arm's base to its tip.
 
 private:

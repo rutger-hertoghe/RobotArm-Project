@@ -64,11 +64,11 @@ void RobotArm::SetRealAngles()
   }
 }
 
-void RobotArm::MoveToTarget(Vector2f target)
+void RobotArm::MoveToTarget(Vector2f target, int nrOfIterations)
 {
   RefreshPhantomSegments();
 
-  const int nrOfIterations{10};
+  // const int nrOfIterations{10};
   
   for(int iteration{0}; iteration < nrOfIterations; ++iteration)
   {
