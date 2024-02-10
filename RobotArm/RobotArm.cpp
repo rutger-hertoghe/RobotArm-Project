@@ -8,11 +8,8 @@ RobotArm::RobotArm(ServoSegment* pBaseSegment)
   , m_NrOfSegments{0}
 {
   SetNrOfSegments();
-
-  m_PhantomSegmentArray = new PhantomSegment[m_NrOfSegments];
-
+  CreatePhantomArms();
   LinkPhantomToReal();
-  GetEndPoint().Print("Get end point: ");
 }
 
 RobotArm::~RobotArm()
@@ -29,6 +26,11 @@ void RobotArm::SetNrOfSegments()
     m_NrOfSegments += 1;
     pCurrentSegment = pCurrentSegment->GetChildSegment();
   }
+}
+
+void RobotArm::CreatePhantomArms()
+{
+  m_PhantomSegmentArray = new PhantomSegment[m_NrOfSegments];
 }
 
 void RobotArm::LinkPhantomToReal()
@@ -73,7 +75,6 @@ void RobotArm::MoveToTarget(Vector2f target)
     HoneInOnTarget(target);
   }
   
-  //PrintAngles();
   SetRealAngles();
 }
 
@@ -100,7 +101,7 @@ void RobotArm::HoneInOnTarget(Vector2f target)
   }
 }
 
-void RobotArm::PrintAngles()
+void RobotArm::PrintPhantomAngles()
 {
   for(int i{0}; i < m_NrOfSegments; ++i)
   {

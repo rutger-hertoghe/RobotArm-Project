@@ -19,8 +19,8 @@ unsigned long CalculateDeltaTime();
 void setup() {
   Serial.begin(9600);
 
-  baseSegment.AttachServo(9);
-  elbowSegment.AttachServo(8);
+  baseSegment.AttachServo(8);
+  elbowSegment.AttachServo(9);
   handSegment.AttachServo(10);
 
   fullArm = new RobotArm{&baseSegment};

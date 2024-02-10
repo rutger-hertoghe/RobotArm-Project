@@ -42,19 +42,17 @@ float ServoSegment::GetLength() const
 
 int ServoSegment::GetAngle() const
 {
+  // If no servo attached, return invalid value
   if(!m_pServo->attached())
   {
     return -1;
   }
+
   const int maxAngle{180};
   const int currentAngle{m_pServo->read()};
 
-  if(m_IsServoReversed)
-  {
-    return maxAngle - currentAngle;
-  }
-
-  return currentAngle;
+  // If the servo is reversed, use the complementary angle
+  return m_IsServoReversed ? maxAngle - currentAngle : currentAngle;
 }
 
 void ServoSegment::SetAngle(int angle)
@@ -66,17 +64,12 @@ void ServoSegment::SetAngle(int angle)
   }
 
   const int maxAngle{180};
-  
-  if(m_IsServoReversed)
-  {
-    m_pServo->write(maxAngle - angle);
-    return;
-  }
 
-  m_pServo->write(angle);
+  // If the servo is reversed, use the complementary angle
+  m_pServo->write(m_IsServoReversed ? maxAngle - angle : angle);
 }
 
-ServoSegment* ServoSegment::GetChildSegment()
+ServoSegment* ServoSegment::GetChildSegment() const
 {
   if(m_pChildSegment)
   {

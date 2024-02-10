@@ -4,8 +4,8 @@
 #include <stdint.h>
 #include "CustomMath.h"
 
-// #define stickX A0 // GREEN WIRE is X
-// #define stickY A1 // BLUE WIRE IS Y
+// #define stickX A0 // GREEN WIRE on controller is X
+// #define stickY A1 // BLUE WIRE on controller is Y
 
 
 class Controller 
