@@ -13,6 +13,7 @@ Inverse kinematics will be used to convert the 2D coordinate in the plane to act
 
 # Process
 ## Stage 1: Building a simple robot arm that reaches for a coordinate in a 2D plane.
+### Constructing the arm
 The first step was to create an arm as a proof of concept that moves its tip into a coordinate in a 2D space both to refresh programming concepts and my inverse kinematics knowledge.
 Robot arm segments had to be build. For this, I glued two icicle sticks together in a perpendicular and slightly offset fashion and then glued these to the serve themselves.
 The picture below should clarify what I mean by this description.
@@ -26,4 +27,6 @@ I ended up building a short 2 segment robot arm, created a small structure to pr
 ![2DArm_OnlyArm](https://github.com/rutger-hertoghe/RobotArm-Project/assets/5301949/58076fa9-63f3-487f-840c-1763f19f72db)
 ![2DArm_FullBuild](https://github.com/rutger-hertoghe/RobotArm-Project/assets/5301949/9e694659-2c0e-4935-893b-7191fed50faf)
 
-Time to code.
+### The code:
+I used a mostly OOP approach and divided the project into multiple header/source files (most often containing a single class):
+* **ServoSegment.h/.cpp**: This class is responsible for managing a single segment of the robot arm. This can be used attach a servo and to get/set the angle of the servo.
