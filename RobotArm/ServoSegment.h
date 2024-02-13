@@ -1,7 +1,7 @@
 #ifndef SERVO_ARM_H
 #define SERVO_ARM_H
 
-#include "CustomMath.h"
+#include "Vector2f.h"
 
 class Servo;
 

@@ -1,7 +1,7 @@
 #ifndef PHANTOM_SEGMENT_H
 #define PHANTOM_SEGMENT_H
 
-#include "CustomMath.h"
+#include "Vector2f.h"
 
 class ServoSegment;
 

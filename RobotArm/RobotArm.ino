@@ -1,5 +1,5 @@
 // #include "Servo.h"
-#include "CustomMath.h"
+#include "MathHelpers.h"
 #include "Controller.h"
 #include "ServoSegment.h"
 #include "RobotArm.h"

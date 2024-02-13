@@ -2,7 +2,7 @@
 #define CONTROLLER_H
 
 #include <stdint.h>
-#include "CustomMath.h"
+#include "Vector2f.h"
 
 // #define stickX A0 // GREEN WIRE on controller is X
 // #define stickY A1 // BLUE WIRE on controller is Y

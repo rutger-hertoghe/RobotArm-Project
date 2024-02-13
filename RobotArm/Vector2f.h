@@ -1,33 +1,11 @@
-#ifndef CUSTOM_MATH_H
-#define CUSTOM_MATH_H
-
-#include <math.h>
-
-#define _USE_MATH_DEFINES
-
-float ConvertDegreesToRadians(int angleInDegrees);
-int ConvertRadiansToDegrees(float angleInRadians);
-int SimplifyDegrees(int angleInDegrees);
-float SimplifyRadians(float angleInRadians);
-
-struct Point2f{
-  Point2f()
-    : x{0.f}, y{0.f}
-  {};
-
-  Point2f(float _x, float _y)
-    : x{_x}, y{_y}
-  {};
-
-  float x;
-  float y;
-};
+#ifndef VECTOR_2F
+#define VECTOR_2F
 
 struct Vector2f{
   Vector2f();
   Vector2f(float _x, float _y);
   Vector2f(int angleInDegrees, float magnitude);
-  Vector2f(const Point2f& point);
+  // Vector2f(const Point2f& point);
 
   float x;
   float y;

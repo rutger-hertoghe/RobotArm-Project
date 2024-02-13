@@ -2,6 +2,8 @@
 #include "ServoSegment.h"
 #include "PhantomSegment.h"
 #include "HardwareSerial.h"
+#include <math.h>
+#include "MathHelpers.h"
 
 RobotArm::RobotArm(ServoSegment* pBaseSegment)
   : m_pBaseSegment{pBaseSegment}
@@ -67,14 +69,11 @@ void RobotArm::SetRealAngles()
 void RobotArm::MoveToTarget(Vector2f target, int nrOfIterations)
 {
   RefreshPhantomSegments();
-
-  // const int nrOfIterations{10};
   
   for(int iteration{0}; iteration < nrOfIterations; ++iteration)
   {
     HoneInOnTarget(target);
   }
-  
   SetRealAngles();
 }
 
