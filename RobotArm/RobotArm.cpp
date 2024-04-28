@@ -10,6 +10,7 @@ RobotArm::RobotArm(ServoSegment* pBaseSegment)
   , m_NrOfSegments{0}
 {
   SetNrOfSegments();
+  Serial.println(m_NrOfSegments);
   CreatePhantomArms();
   LinkPhantomToReal();
 }
@@ -74,6 +75,7 @@ void RobotArm::MoveToTarget(Vector2f target, int nrOfIterations)
   {
     HoneInOnTarget(target);
   }
+  // PrintPhantomAngles();
   SetRealAngles();
 }
 

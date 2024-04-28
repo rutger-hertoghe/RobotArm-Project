@@ -2,10 +2,10 @@
 #include "HardwareSerial.h"
 #include "Servo.h"
 
-ServoSegment::ServoSegment(int defaultAngleDeg, bool isServoReversed, ServoSegment* pChildSegment)
+ServoSegment::ServoSegment(int defaultAngleDeg, bool isServoReversed)
   : m_DefaultAngleDeg{defaultAngleDeg}
-  , m_pChildSegment{pChildSegment}
   , m_IsServoReversed{isServoReversed}
+  , m_pChildSegment{nullptr}
   , m_SegmentLength{1.f}
 {
   m_pServo = new Servo{};
@@ -67,6 +67,11 @@ void ServoSegment::SetAngle(int angle)
 
   // If the servo is reversed, use the complementary angle
   m_pServo->write(m_IsServoReversed ? maxAngle - angle : angle);
+}
+
+void ServoSegment::SetChildSegment(ServoSegment* pChildSegment)
+{
+  m_pChildSegment = pChildSegment;
 }
 
 ServoSegment* ServoSegment::GetChildSegment() const

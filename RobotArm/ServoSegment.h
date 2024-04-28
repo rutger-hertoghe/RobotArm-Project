@@ -11,7 +11,7 @@ public:
   /* defaultAngleDeg: The angle that the Servo should default to;
      isServoReversed: If the physical servo is on the left side of the forward axis, this needs to be true
      pChildSegment: This is the next segment on the arm that is closer to its tip, if there is one */
-  explicit ServoSegment(int defaultAngleDeg, bool isServoReversed, ServoSegment* pChildSegment = nullptr);
+  explicit ServoSegment(int defaultAngleDeg, bool isServoReversed);
   // Declared & defined destructor (see .cpp) because ServoSegment has ownership over a Servo object
   ~ServoSegment();
 
@@ -27,6 +27,8 @@ public:
   int GetAngle() const;
   void SetAngle(int angle);
   float GetLength() const;
+
+  void SetChildSegment(ServoSegment* pChildSegment);
   ServoSegment* GetChildSegment() const; // TODO: might be redundant/confusing, better to give RobotArm full ownership of the arm?
 
 private:
